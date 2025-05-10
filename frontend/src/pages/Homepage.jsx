@@ -9,7 +9,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <button onClick={()=>toast.error("hello world")}>click</button>
+      <button >home page</button>
     </div>
   )
 }
