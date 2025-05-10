@@ -30,15 +30,15 @@ function App() {
         />
         <Route
           path="/signup"
-          element={!isAuthenticated ? <SignupPage /> : <Navigate to="/" />}
+          element={!isAuthenticated ? <SignupPage /> : <Navigate to={isOnboarded?"/":"/onboarding"} />}
         />
         <Route
           path="/login"
-          element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" />}
+          element={!isAuthenticated ? <LoginPage /> : <Navigate to={isOnboarded?"/":"/onboarding"} />}
         />
         <Route
           path="/notifications"
-          element={isAuthenticated ? <NotificationPage /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <NotificationPage /> : <Navigate to={"/login"} />}
         />
         <Route
           path="/call"
