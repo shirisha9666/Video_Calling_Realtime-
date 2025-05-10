@@ -17,6 +17,7 @@ const LoginPage = () => {
   //   onSuccess:()=>queryClient.invalidateQueries({queryKey:["authUser"]}),
   // })
 const{error,isPending,loginMutation}=useLogin()
+
   const handleLogin=(e)=>{
     e.preventDefault();
     loginMutation(loginData)
