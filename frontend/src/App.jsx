@@ -13,16 +13,19 @@ import PageLoader from "./components/PageLoader";
 
 import useAuthUser from "./hooks/useAuthUser";
 import Layout from "./components/Layout";
+import { useThemeStore } from "./store/useThemeStore";
 
 function App() {
   const { isLoading, authUser } = useAuthUser();
+   const { theme } = useThemeStore();
   if (isLoading) return <PageLoader />;
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
   console.log("authUser", authUser, isAuthenticated, isOnboarded);
+  
 
   return (
-    <div className="h-screen" data-theme="forest">
+    <div className="h-screen" data-theme={theme}>
       <Routes>
         <Route
           path="/"
