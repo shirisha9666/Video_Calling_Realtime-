@@ -194,4 +194,6 @@ export const THEMES = [
     italian: "it",
     turkish: "tr",
     dutch: "nl",
+    telugu: 'in',     
+  hind: 'in', 
   };

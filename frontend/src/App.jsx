@@ -25,13 +25,13 @@ function App() {
   
 
   return (
-    <div className="h-screen" data-theme={theme}>
+    <div className="h-screen overflow-y-scroll" data-theme={theme}>
       <Routes>
         <Route
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              <Layout showSidebar={true}>
+              <Layout showSidebar={true} >
                 <HomePage />
               </Layout>
             ) : (
@@ -70,7 +70,7 @@ function App() {
           element={isAuthenticated ? <CallPage /> : <Navigate to="/login" />}
         />
         <Route
-          path="/chat"
+          path="/chat/:id"
           element={isAuthenticated ? <ChatPage /> : <Navigate to="/login" />}
         />
         <Route
