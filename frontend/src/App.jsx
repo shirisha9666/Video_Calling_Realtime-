@@ -17,12 +17,11 @@ import { useThemeStore } from "./store/useThemeStore";
 
 function App() {
   const { isLoading, authUser } = useAuthUser();
-   const { theme } = useThemeStore();
+  const { theme } = useThemeStore();
   if (isLoading) return <PageLoader />;
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
   console.log("authUser", authUser, isAuthenticated, isOnboarded);
-  
 
   return (
     <div className="h-screen overflow-y-scroll" data-theme={theme}>
@@ -31,7 +30,7 @@ function App() {
           path="/"
           element={
             isAuthenticated && isOnboarded ? (
-              <Layout showSidebar={true} >
+              <Layout showSidebar={true}>
                 <HomePage />
               </Layout>
             ) : (
@@ -62,7 +61,13 @@ function App() {
         <Route
           path="/notifications"
           element={
-            isAuthenticated ? <NotificationPage /> : <Navigate to={"/login"} />
+            isAuthenticated && isOnboarded ? (
+              <Layout showSidebar={true}>
+                <NotificationPage />
+              </Layout>
+            ) : (
+              <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
           }
         />
         <Route
