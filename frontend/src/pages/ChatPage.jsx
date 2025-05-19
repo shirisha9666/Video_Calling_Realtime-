@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useAuthUser from "../hooks/useAuthUser";
@@ -23,7 +22,6 @@ import CallButton from "../components/CallButton";
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 console.log("API Key:", STREAM_API_KEY);
-
 
 const ChatPage = () => {
   const { id: targetUserId } = useParams();
@@ -83,15 +81,21 @@ const ChatPage = () => {
 
     initChat();
   }, [tokenData, authUser, targetUserId]);
-  const handleVideoCall=async()=>{
-
-  }
+  const handleVideoCall = async () => {
+    if (channel) {
+      const callUrl = `${window.location.origin}/call/${channel.id}`;
+      console.log("callUrl", callUrl);
+      channel.sendMessage({
+        text: `I've stated a video call. join me here: ${callUrl}`,
+      });
+      toast.success("Video call link sent successfully");
+    }
+  };
 
   if (loading || !chatClient || !channel) return <ChatLoader />;
 
   return (
- 
-      <div className="h-[93vh]">
+    <div className="h-[93vh]">
       <Chat client={chatClient}>
         <Channel channel={channel}>
           <div className="w-full relative">

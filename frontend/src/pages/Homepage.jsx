@@ -21,19 +21,19 @@ import { capitialize } from "../lib/utils";
 const Homepage = () => {
   const queryClient = useQueryClient();
   const [outgoingRequestsIds, setOutgoingRequestsIds] = useState(new Set());
-  console.log("outgoingRequestsIds", outgoingRequestsIds);
+ 
 
   const { data: friends = [], isLoading: loadingFriends } = useQuery({
     queryKey: ["friends"],
     queryFn: getUserFriends,
   });
-  console.log("friends", friends);
+
 
   const { data: recommendedUsers = [], isLoading: loadingUsers } = useQuery({
     queryKey: ["users"],
     queryFn: getRecommendedUsers,
   });
-  console.log("recommendedUsers", recommendedUsers);
+  
   const { data: outgoingFriendReqs } = useQuery({
     queryKey: ["outgoingFriendReqs"],
     queryFn: getOutgoingFriendReqs,
@@ -49,7 +49,7 @@ const Homepage = () => {
     const outgoingIds = new Set();
     if (outgoingFriendReqs && outgoingFriendReqs.length > 0) {
       outgoingFriendReqs.forEach((req) => {
-        console.log("req",req)
+   
         outgoingIds.add(req.recipient._id);
       });
       setOutgoingRequestsIds(outgoingIds);
