@@ -10,12 +10,7 @@ const LoginPage = () => {
     email:"",
     password:""
   });
-  // const queryClient=useQueryClient();
-
-  // const {mutate:loginMutation,isPending,error}=useMutation({
-  //   mutationFn:login,
-  //   onSuccess:()=>queryClient.invalidateQueries({queryKey:["authUser"]}),
-  // })
+ 
 const{error,isPending,loginMutation}=useLogin()
 
   const handleLogin=(e)=>{

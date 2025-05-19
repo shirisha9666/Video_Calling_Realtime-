@@ -1,0 +1,21 @@
+{
+  "name": "video_calling-_realtime",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirisha9666/Video_Calling_Realtime-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirisha9666/Video_Calling_Realtime-/issues"
+  },
+  "homepage": "https://github.com/shirisha9666/Video_Calling_Realtime-#readme",
+  "description": ""
+}
